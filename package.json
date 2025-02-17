@@ -1,7 +1,7 @@
 {
-  "name": "node-vue-app-backend",
+  "name": "node-app-backend",
   "version": "1.0.0",
-  "description": "Backend for the Node.js and Vue.js application",
+  "description": "Backend for the Node.js application",
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
