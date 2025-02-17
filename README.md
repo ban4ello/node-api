@@ -19,28 +19,31 @@
    cd backend
 
 2. Установите зависимости:
-npm install
+   ```sh
+   npm install
 
-3.Создайте файл .env в корневом каталоге и добавьте свои переменные окружения, такие как строки подключения к базе данных и секреты API.
+3. Создайте файл .env в корневом каталоге и добавьте свои переменные окружения, такие как строки подключения к базе данных и секреты API.
 
 ## Конфигурация
 Пример содержимого файла .env:
-DATABASE_URL=postgres://username:password@localhost:5432/database_name
-JWT_SECRET=your_jwt_secret
-EMAIL_SERVICE=your_email_service
-EMAIL_USER=your_email@example.com
-EMAIL_PASS=your_email_password
-NODE_ENV=development
-PORT=3000
-DB_NAME=your_db_name
-DB_USER=root
-DB_PASSWORD=123456
-DB_HOST=127.0.0.1
-DB_PORT=5432
+   ```sh
+   DATABASE_URL=postgres://username:password@localhost:5432/database_name
+   JWT_SECRET=your_jwt_secret
+   EMAIL_SERVICE=your_email_service
+   EMAIL_USER=your_email@example.com
+   EMAIL_PASS=your_email_password
+   NODE_ENV=development
+   PORT=3000
+   DB_NAME=your_db_name
+   DB_USER=root
+   DB_PASSWORD=123456
+   DB_HOST=127.0.0.1
+   DB_PORT=5432
 
 ## Запуск сервера
 1. Запустите сервер:
-npm start
+   ```sh
+   npm start
 
 Сервер будет запущен на порту, указанном в переменной окружения PORT (по умолчанию 3000).
 
