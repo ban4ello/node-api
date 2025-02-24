@@ -27,33 +27,62 @@
    ```sh
    DATABASE_URL=postgres://username:password@localhost:5432/database_name
    JWT_SECRET=your_jwt_secret
-   EMAIL_SERVICE=your_email_service
-   EMAIL_USER=your_email@example.com
-   EMAIL_PASS=your_email_password
    NODE_ENV=development
    PORT=3000
    DB_NAME=your_db_name
-   DB_USER=root
+   DB_USER=postgres
    DB_PASSWORD=123456
    DB_HOST=127.0.0.1
    DB_PORT=5432
 
-4. Запуск сервера
+4. Выполните миграции базы данных:
    ```sh
-   npm start
+   npm run migrate
+   ```
+
+5. Запуск сервера
+   ```sh
+   npm run start
 
 Сервер будет запущен на порту, указанном в переменной окружения PORT (по умолчанию 3000).
 
 ## Возможности
 
-- **Аутентификация пользователей**: регистрация, вход в систему, проверка электронной почты.
+- **Аутентификация пользователей**: регистрация, вход в систему.
 - **Управление пользователями**: создание, чтение, обновление и удаление пользователей.
-- **Управление производителями**: создание, чтение, обновление и удаление производителей.
-- **Управление модераторами**: создание, чтение, обновление и удаление модераторов.
-- **Управление клиентами**: создание, чтение, обновление и удаление клиентов.
 
 ## API Маршруты
 
-- `/api/auth/login` - Вход пользователя
-- `/api/auth/register` - Регистрация пользователя
-- `/api/auth/verify-email/:token` - Проверка электронной почты
+- `/api/auth/register` - Регистрация пользователя ✅
+  - **Тело запроса**:
+    ```json
+    {
+      "email": "string",
+      "password": "string",
+      "phone": "string",
+      "userType": "string", // Тип пользователя (Производитель, Заказчик)
+      "country": "string",
+      "city": "string",
+      "preferredLanguage": "string"
+    }
+    ```
+
+- `/api/auth/login` - Вход пользователя ✅
+
+- `/api/users` - Управление пользователями
+  - `GET /api/users` - Получить список всех пользователей ✅
+  - `GET /api/users/:id` - Получить информацию о пользователе по ID ✅
+  - `PUT /api/users/:id` - Обновить информацию о пользователе по ID ✅
+    - **Тело запроса**:
+      ```json
+      {
+         "email": "string",
+         "password": "string",
+         "phone": "string",
+         "userType": "string", // Тип пользователя (manufacturer, customer)
+         "country": "string",
+         "city": "string",
+         "preferredLanguage": "string"
+      }
+      ```
+  - `DELETE /api/users/:id` - Удалить пользователя по ID ✅

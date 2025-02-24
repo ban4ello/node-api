@@ -10,8 +10,7 @@ const createUserTable = async () => {
         },
         username: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
+            allowNull: true,
         },
         email: {
             type: DataTypes.STRING,
@@ -24,6 +23,27 @@ const createUserTable = async () => {
         password: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        phone: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            unique: true,
+        },
+        userType: {
+            type: DataTypes.ENUM('manufacturer', 'customer'),
+            allowNull: false,
+        },
+        country: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        preferredLanguage: {
+            type: DataTypes.STRING,
+            allowNull: true,
         },
         createdAt: {
             type: DataTypes.DATE,
@@ -39,4 +59,4 @@ const createUserTable = async () => {
     console.log('Users table created successfully');
 };
 
-createUserTable().catch(console.error);
+module.exports = createUserTable;
