@@ -15,7 +15,7 @@
 
 1. Клонируйте репозиторий:
    ```sh
-   git clone <repository-url>
+   git clone https://github.com/ban4ello/node-api.git backend
    cd backend
 
 2. Установите зависимости:
@@ -29,7 +29,7 @@
    JWT_SECRET=your_jwt_secret
    NODE_ENV=development
    PORT=3000
-   DB_NAME=your_db_name
+   DB_NAME=database_name
    DB_USER=postgres
    DB_PASSWORD=123456
    DB_HOST=127.0.0.1
@@ -60,7 +60,7 @@
       "email": "string",
       "password": "string",
       "phone": "string",
-      "userType": "string", // Тип пользователя (Производитель, Заказчик)
+      "userType": "string", // Тип пользователя (manufacturer, customer)
       "country": "string",
       "city": "string",
       "preferredLanguage": "string"
